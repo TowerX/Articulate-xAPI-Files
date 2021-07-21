@@ -1,4 +1,12 @@
 <!-- 
+The file referenced below, crypto-js.min.js, is needed for secure authentication into your LRS.  
+The file is being referenced on a stable CDN so you don't have to worry about keeping it local, but feel free to download it and include it with the other files if that's your preference.
+-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9/crypto-js.min.js" integrity="sha512-Zl1k/bs5R0zzwAw+kxzMh4HjpC2Y2fy8Qu8xoUUA4mXTYtgq6oWtLUUMSRiaJZ/hH0hwE7locgWLozvskZrnvw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<!-- 
 This HTML will need to be added before the closing body tag </body> within the story.html file.  
 To keep it simple, it assumes that the files that it's referencing (xAPIwrapper.js and sendStatement.js) are in the same directory as the story.html file.  Adjust as needed.
 -->
@@ -6,9 +14,3 @@ To keep it simple, it assumes that the files that it's referencing (xAPIwrapper.
 <script src = "xAPIwrapper.js"></script>
 <script src = "sendStatement.js"></script>
 
-<!-- 
-The file referenced below, crypto-js.min.js, is needed for secure authentication into your LRS.  
-The file is being referenced on a stable CDN so you don't have to worry about keeping it local, but feel free to download it and include it with the other files if that's your preference.
--->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9/crypto-js.min.js" integrity="sha512-Zl1k/bs5R0zzwAw+kxzMh4HjpC2Y2fy8Qu8xoUUA4mXTYtgq6oWtLUUMSRiaJZ/hH0hwE7locgWLozvskZrnvw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
