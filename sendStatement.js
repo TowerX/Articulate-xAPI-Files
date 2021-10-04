@@ -5,7 +5,7 @@
  * GetPlayer() and GetVar are built-in functions that allow you to pull Storyline data into your own custom code.  
  * A great resource to learn more about Storyline Variables is https://community.articulate.com/articles/articulate-storyline-360-user-guide-how-to-work-with-variables
  * 
- * Next, ths xAPI statement needs to be built. The components included (actor, verb, object) of this are to meet general needs, however there's a lot more you can do if these don't meet your needs.
+ * Next, the xAPI statement needs to be built. The components included (actor, verb, object) of this are to meet general needs, however there's a lot more you can do if these don't meet your needs.
  * A great resource to learn more is https://xapi.com/statements-101/
  * 
  * You will need to call this function (sendStatement) within a learning experience to capture something that you want to send to your LRS.
@@ -21,11 +21,18 @@
 function sendStatement(verb, verbID, objID, objName, objDesc){
 
 	// Get Username & Email from Articulate Storyline
-	userName = GetPlayer().GetVar("userName");
-	emailAddress = GetPlayer().GetVar("emailAddress");
+	const userName = GetPlayer().GetVar("userName");
+	const emailAddress = GetPlayer().GetVar("emailAddress");
+	
+	// Config (for my next test)
+	//const config = {
+	//    "endpoint": "https://towerx-lrs.lrs.io/xapi/",
+	//    "auth": "Basic " + toBase64("girela:iwicee")
+	//}
+	//ADL.XAPIWrapper.changeConfig(config);
 
 	// Structure the statement for xAPI
-	var statement = {  
+	const statement = {  
 	    "actor": {  
 	        "mbox": "mailto:"+emailAddress,  
 	        "name": userName,  
@@ -46,8 +53,9 @@ function sendStatement(verb, verbID, objID, objName, objDesc){
 	};
 
 	// Send the prepared statement to the xAPI wrapper
-	ADL.XAPIWrapper.sendStatement(statement);
+	const result = ADL.XAPIWrapper.sendStatement(statement);
 	
 	// dirty debug step to make sure it worked
 	console.log(verb + " statement has been sent!");
+	// console.log(result);
 }
